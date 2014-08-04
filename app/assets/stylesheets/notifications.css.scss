@@ -1,0 +1,38 @@
+.bs-callout-success {
+  background-color: #dff0d8;
+  border-color: #468847;
+  border-left: 3px solid #468847 !important;
+  color: #468847;
+}
+
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #5bc0de;
+  border-left: 3px solid #5bc0de !important;
+  color: #5bc0de;
+}
+
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #d9534f;
+  border-left: 3px solid #d9534f !important;
+  color: #d9534f;
+}
+
+.bs-callout-error {
+  background-color: #fdf7f7;
+  border-color: #d9534f;
+  border-left: 3px solid #d9534f !important;
+  color: #d9534f;
+}
+
+.bs-callout {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+}
+
+.error {
+  //border-left: 3px solid #d9534f !important;
+  color: #d9534f; 
+}

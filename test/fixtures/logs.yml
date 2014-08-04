@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lon: 9.99
+  lat: 9.99
+  logged_at: 2014-07-23 15:31:35
+  session_token: MyString
+  vessel_id: 1
+
+two:
+  lon: 9.99
+  lat: 9.99
+  logged_at: 2014-07-23 15:31:35
+  session_token: MyString
+  vessel_id: 1

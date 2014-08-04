@@ -1,0 +1,103 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require notifications
+ *= require colors
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap';
+@import 'colors';
+
+#single_map {
+  height: 450px;
+  border: 1px solid #e2e2e2;
+}
+
+html, body, #map {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#footer {
+  height: 80px;
+  margin-top: 20px;
+  background-color: #e2e2e2;
+  padding-top: 20px;
+  color: #2e2e2e;
+}
+
+#pages-navigation {
+  .logo {
+    font-weight: bold;
+    color: #fff;
+    font-size: 2em;
+    margin-top: 16px;
+  }
+}
+
+#main {
+}
+
+#login {
+  padding: 80px 80px 0px 80px;
+  #login-banner {
+    padding-left: 30px;
+    height: 100%;
+  }
+  #login-container {
+    border: 2px solid rgba(0,0,0,0.3);
+    margin: 0 auto;
+  }
+  #login-form {
+    border-left: 2px solid rgba(0,0,0,0.3);
+    padding: 20px;
+  }
+}
+
+#pages-navigation {
+  height: 80px;
+  background: $darkBlue;
+  border-bottom: 1px solid $navyBlue;
+
+  ul {
+    margin-top: 28px;
+    text-align: right;
+    li {
+      display: inline;
+      margin-right: 20px;
+      a {
+        color: $white;
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: yellow;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*
+ * BOOTSTRAP OVERRIDES
+ */
+
+.btn {
+  border-radius: 0px;
+}
+
+input.form-control {
+  border-radius: 0px;
+}

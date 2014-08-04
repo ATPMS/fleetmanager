@@ -1,0 +1,26 @@
+<nav class="navbar-wrapper navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "Fleet Management", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="">
+            <%= link_to "Map", users_map_path %>
+          </li>
+          <li class="dropdown"> <%= link_to "Vessels", "", class: "dropdown-toggle", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Add Vessel", new_users_vessel_path %></li>
+              <li><%= link_to "Display Vessels", users_vessels_path %></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="navbar-form navbar-right" style="color: #fff;">
+          Logged in as: <%= "test" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to logout?" }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Reference Number</th>
+    <th>Access Token</th>
+    <th>Actions</th>
+  </tr>
+  <% vessels.each do |vessel| %>
+    <tr>
+      <td><%= vessel.name %></td>
+      <td><%= vessel.code %></td>
+      <td><%= vessel.reference_number %></td>
+      <td><%= vessel.access_token %></td>
+      <td>
+        <%= link_to "Show", users_vessel_path(vessel), class: "btn btn-xs btn-info" %>
+        <%= link_to "Edit", edit_users_vessel_path(vessel), class: "btn btn-xs btn-info" %>
+        <%= link_to "Delete", users_vessel_path(vessel), class: "btn btn-xs btn-danger", data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
