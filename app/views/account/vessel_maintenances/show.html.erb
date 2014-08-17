@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Maintenance Record <small><%= @vessel_maintenance.date_of_maintenance %></small></h1>
+      <%= link_to "Back to Maintenance Records", account_vessel_maintenances_path %> |
+      <%= link_to "Edit", edit_account_vessel_path(@vessel_maintenance) %> |
+      <%= link_to "Go to Vessel", account_vessel_path(@vessel_maintenance.vessel) %> |
+      <%= link_to "Delete Record", account_vessel_maintenance_path(@vessel_maintenance), method: :delete, data: { confirm: "Are you sure?" } %>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: "account/vessel_maintenances/details", locals: { vessel_maintenance: @vessel_maintenance } %>
+    </div>
+  </div>
+</div>

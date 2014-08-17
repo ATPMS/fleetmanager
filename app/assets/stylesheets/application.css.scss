@@ -12,12 +12,42 @@
  *
  *= require notifications
  *= require colors
- *= require_tree .
  *= require_self
  */
 
 @import 'bootstrap';
 @import 'colors';
+
+th {
+  color: $white;
+  background: $darkBlue;
+}
+
+.details {
+  th {
+    width: 25%;
+  }
+}
+
+.tab-content-inner {
+  padding: 20px;
+  border-bottom: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+}
+
+#login {
+  border: 1px solid #e2e2e2;
+  padding: 20px;
+  margin-top: 20px;
+  color: #fff;
+  background-image: url('/assets/fleet.jpg');
+
+  h1 {
+    background: rgba(0,0,0,0.8);
+    padding: 10px;
+  }
+}
 
 #single_map {
   height: 450px;
@@ -51,19 +81,6 @@ html, body, #map {
 }
 
 #login {
-  padding: 80px 80px 0px 80px;
-  #login-banner {
-    padding-left: 30px;
-    height: 100%;
-  }
-  #login-container {
-    border: 2px solid rgba(0,0,0,0.3);
-    margin: 0 auto;
-  }
-  #login-form {
-    border-left: 2px solid rgba(0,0,0,0.3);
-    padding: 20px;
-  }
 }
 
 #pages-navigation {

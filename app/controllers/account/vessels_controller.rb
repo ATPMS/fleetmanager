@@ -1,4 +1,4 @@
-module Users
+module Account
   class VesselsController < ApplicationController
 
     before_filter :authenticate_user!
@@ -6,7 +6,15 @@ module Users
     layout :resolve_layout
     
     def index
-      @vessels = Vessel.where(user_id: current_user.id)
+      @vessels = Vessel.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(10)
+    end
+
+    def real_time
+      @vessel = Vessel.find(params[:id])
+    end
+
+    def tracking_history
+      @vessel = Vessel.find(params[:id])
     end
 
     def new
@@ -19,7 +27,7 @@ module Users
 
       if @vessel.save
         flash.now[:success] = "Successfully saved vessel"
-        redirect_to users_vessel_path(@vessel)
+        redirect_to account_vessel_path(@vessel)
       else
         flash[:error] = "There was an error in saving a vessel"
         render :new
@@ -35,7 +43,7 @@ module Users
 
       if @vessel.update(permit_params)
         flash.now[:success] = "Successfully saved vessel"
-        redirect_to users_vessel_path(@vessel)
+        redirect_to account_vessel_path(@vessel)
       else
         flash[:error] = "There was an error in saving a vessel"
         render :edit

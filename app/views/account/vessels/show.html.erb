@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @vessel %> <small><%= @vessel.code %></small></h1>
+      <div class="row">
+        <div class="col-md-6">
+          <%= render partial: "account/vessels/show_actions", locals: { vessel: @vessel } %>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active"><%= link_to "General", "#general", "data-toggle" => "tab"  %></li>
+        <li class=""><%= link_to "Maintenance", "#maintenance", "data-toggle" => "tab" %></li>
+      </ul>
+      <div class="tab-content tab-content-inner">
+        <div class="tab-pane active" id="general">
+          <%= render partial: "account/vessels/details", locals: { vessel: @vessel } %>
+        </div>
+        <div class="tab-pane" id="maintenance">
+          <%= render partial: "account/vessel_maintenances/list", locals: { vessel_maintenances: @vessel.vessel_maintenances.order("date_of_maintenance DESC") } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Dashboard</h1>
+      <h1>New Vessel Maintenance Record</h1>
       <hr>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
-      <%= render partial: "account/vessels/table", locals: { vessels: @vessels } %>
+      <%= render partial: "account/vessel_maintenances/form", locals: { vessel_maintenance: @vessel_maintenance } %>
     </div>
   </div>
 </div>

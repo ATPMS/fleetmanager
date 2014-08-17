@@ -1,0 +1,26 @@
+<table class="table table-bordered details">
+  <tr>
+    <th>Vessel</th>
+    <td><%= vessel_maintenance.vessel %></td>
+  </tr>
+  <tr>
+    <th>Maintenance Type</th>
+    <td><%= vessel_maintenance.maintenance_type %></td>
+  </tr>
+  <tr>
+    <th>Date of Maintenance</th>
+    <td><%= vessel_maintenance.date_of_maintenance %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td><%= vessel_maintenance.status %></td>
+  </tr>
+  <tr>
+    <th>Service Company</th>
+    <td><%= vessel_maintenance.service_company %></td>
+  </tr>
+  <tr>
+    <th>Cost</th>
+    <td><%= number_to_currency(vessel_maintenance.cost, unit: "P", separator: ".", delimiter: " ") %></td>
+  </tr>
+</table>

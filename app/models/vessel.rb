@@ -9,6 +9,13 @@ class Vessel < ActiveRecord::Base
 
   before_validation :load_defaults
 
+  has_many :vessel_maintenances
+  accepts_nested_attributes_for :vessel_maintenances, allow_destroy: true
+
+  def self.user_vessels(u)
+    Vessel.where(user_id: u.id)
+  end
+
   def load_defaults
     if self.new_record?
       self.access_token = SecureRandom.uuid

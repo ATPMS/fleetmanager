@@ -17,6 +17,7 @@
 //= require js-routes
 //= require bootstrap
 //= require tracking
+//= require jquery_nested_form
 //= require_tree .
 
 $(document).ready(function() {

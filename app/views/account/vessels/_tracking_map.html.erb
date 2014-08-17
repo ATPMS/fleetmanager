@@ -2,26 +2,22 @@
   <div id="map">
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Board</h3>
-      <hr>
-      <table class="table table-bordered">
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <tr>
+        <th>Vessel</th>
+        <th>Latest Log</th>
+        <th>Timestamp</th>
+      </tr>
+      <% vessels.each do |vessel| %>
         <tr>
-          <th>Vessel</th>
-          <th>Latest Log</th>
-          <th>Timestamp</th>
+          <td><%= vessel.name %> <small><%= vessel.code %></small></td>
+          <td id="vessel-latest-log-<%= vessel.id %>"></td>
+          <td id="vessel-latest-log-timestamp-<%= vessel.id %>"></td>
         </tr>
-        <% vessels.each do |vessel| %>
-          <tr>
-            <td><%= vessel.name %> <small><%= vessel.code %></small></td>
-            <td id="vessel-latest-log-<%= vessel.id %>"></td>
-            <td id="vessel-latest-log-timestamp-<%= vessel.id %>"></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+      <% end %>
+    </table>
   </div>
 </div>
 
@@ -74,7 +70,8 @@ $(document).ready(function() {
   });
   initialize();
 
-  setInterval(drawVessels, 1000);
+  drawVessels();
+  setInterval(drawVessels, 5000);
 });
 
 function drawVessels() {

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vessel_id: 1
+  date_of_maintenance: 2014-08-13
+  maintenance_type: MyString
+  status: MyString
+  person_in_charge: MyString
+  service_company: MyString
+  cost: 9.99
+
+two:
+  vessel_id: 1
+  date_of_maintenance: 2014-08-13
+  maintenance_type: MyString
+  status: MyString
+  person_in_charge: MyString
+  service_company: MyString
+  cost: 9.99

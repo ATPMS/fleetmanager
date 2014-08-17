@@ -1,5 +1,18 @@
 module Api
   class VesselsController < ApiController
+
+    def get_logs
+      vessel = Vessel.where(access_token: params[:access_token]).first
+
+      if vessel.nil?
+        render json: "Not found"
+      else
+        start_datetime = params[:start_datetime] ||= Time.now - 30.days
+        end_datetime = params[:end_datetime] ||= Time.now
+        render json: vessel.logs.where(logged_at: start_datetime..end_datetime).order("logged_at DESC").group_by { |l| l.session_token };
+      end
+    end
+
     def last_location
       vessel = Vessel.where(access_token: params[:access_token]).first
 

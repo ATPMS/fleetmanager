@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>Maintenance Records</h1>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: "account/vessel_maintenances/list", locals: { vessel_maintenances: @vessel_maintenances } %>
+      <%= paginate @vessel_maintenances %>
+    </div>
+  </div>
+</div>

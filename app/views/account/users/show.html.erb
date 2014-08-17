@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= current_user.name %></h1>
+      <%= link_to "Edit My Profile", edit_account_user_path(current_user) %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <label>Email: </label>
+      <%= current_user.email %>
+      <label>Email: </label>
+      <%= current_user.email %>
+    </div>
+  </div>
+</div>

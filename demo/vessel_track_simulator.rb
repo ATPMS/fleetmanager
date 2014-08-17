@@ -4,7 +4,7 @@ require 'securerandom'
 puts "Demo for Fleet Management v0.1"
 puts "=============================="
 
-API_ENDPOINT_SAVE_LOGS = "http://localhost:3000/api/vessels/logs/save"
+API_ENDPOINT_SAVE_LOGS = "http://106.186.124.150:8082/api/vessels/logs/save"
 VESSEL_ACCESS_TOKEN = ARGV.first
 SESSION_TOKEN = SecureRandom.hex(4)
 
