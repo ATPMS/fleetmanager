@@ -27,12 +27,14 @@ module Api
     end
 
     def save_logs
-      vessel = Vessel.where(access_token: params[:access_token]).first
+      information = request.raw_post
+      data = JSON.parse(information)
+      vessel = Vessel.where(access_token: data['access_token']).first
 
       if vessel.nil?
-        render json: "No such vessel #{params[:access_token]}"
+        render json: "No such vessel #{data['access_token']}"
       else
-        logs = JSON.parse(params[:logs])
+        logs = data['logs']
         logs.each do |l|
           new_log = Log.new    
           new_log.lon = l["lon"]
