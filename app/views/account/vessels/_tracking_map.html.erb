@@ -4,20 +4,37 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <table class="table table-bordered">
-      <tr>
-        <th>Vessel</th>
-        <th>Latest Log</th>
-        <th>Timestamp</th>
-      </tr>
-      <% vessels.each do |vessel| %>
-        <tr>
-          <td><%= vessel.name %> <small><%= vessel.code %></small></td>
-          <td id="vessel-latest-log-<%= vessel.id %>"></td>
-          <td id="vessel-latest-log-timestamp-<%= vessel.id %>"></td>
-        </tr>
+    <div class="well">
+      <%= form_tag send("account_map_path"), method: :post do |f| %>
+        <div class="row">
+          <div class="col-md-10">
+            <%= select_tag :vessel_ids, options_from_collection_for_select(current_user.vessels, :id, :name), multiple: true, class: 'select-select2 form-control' %>
+          </div>
+          <div class="col-md-2">
+            <%= submit_tag "Show Vessels", class: "btn btn-primary btn-block" %>
+          </div>
       <% end %>
-    </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="well">
+      <table class="table table-bordered">
+        <tr>
+          <th>Vessel</th>
+          <th>Latest Log</th>
+          <th>Timestamp</th>
+        </tr>
+        <% vessels.each do |vessel| %>
+          <tr>
+            <td><%= vessel.name %> <small><%= vessel.code %></small></td>
+            <td id="vessel-latest-log-<%= vessel.id %>"></td>
+            <td id="vessel-latest-log-timestamp-<%= vessel.id %>"></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 

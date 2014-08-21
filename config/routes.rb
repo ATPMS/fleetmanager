@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :vessel_maintenances
     resources :users, only: [:show, :edit, :update]
     get "/map", to: "vessels#map", as: :map
+    post "/map", to: "vessels#map", as: :map_post
   end
 
   namespace :api do
@@ -19,4 +20,7 @@ Rails.application.routes.draw do
     post "/vessels/logs/save", to: "vessels#save_logs", as: :save_logs
     get "/vessels/get_logs", to: "vessels#get_logs", as: :get_logs
   end
+
+  get "/traffic", to: "pages#traffic_volume", as: :traffic_volume
+  get "/get_traffic_volume", to: "pages#get_traffic_volume", as: :get_traffic_volume
 end

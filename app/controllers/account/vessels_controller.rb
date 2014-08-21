@@ -60,7 +60,11 @@ module Account
     end
 
     def map
-      @vessels = current_user.vessels
+      @vessels = []
+
+      if request.post?
+        @vessels = Vessel.where("vessels.id IN (?)", params[:vessel_ids])
+      end
     end
 
     private

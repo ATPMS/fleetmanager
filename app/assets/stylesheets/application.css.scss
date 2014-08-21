@@ -12,11 +12,48 @@
  *
  *= require notifications
  *= require colors
+ *= require select2
  *= require_self
  */
 
 @import 'bootstrap';
 @import 'colors';
+
+.select2-container {
+  padding:  0px;
+  border-width: 0px;
+}
+
+.select2-container .select2-choice {
+  height: 38px;
+  line-height: 38px;
+}
+
+#curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99999999999;
+  .text {
+    width: 200px;
+    color: white;
+    left: 50%;
+    margin-left: -100px;
+    font-size: 30px;
+    top: 50%;
+    position: absolute;
+    height: 200px;
+    margin-top: -100px;
+    background: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
+    border-radius: 10000px;
+  }
+}
 
 th {
   color: $white;
@@ -78,6 +115,7 @@ html, body, #map {
 }
 
 #main {
+  position: relative;
 }
 
 #login {

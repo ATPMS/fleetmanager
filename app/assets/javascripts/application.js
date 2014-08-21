@@ -16,9 +16,15 @@
 //= require openlayers-rails
 //= require js-routes
 //= require bootstrap
+//= require select2
 //= require tracking
 //= require jquery_nested_form
 //= require_tree .
 
 $(document).ready(function() {
+  $(".select-select2").select2();
+  $(".select-select2").on("change", function() {
+    $container = $(this).prev(".select2-container");
+    $container.height($container.children(".select2-choices").height());
+  });
 });
