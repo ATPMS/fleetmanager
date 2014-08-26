@@ -28,7 +28,7 @@ module Api
 
     def save_logs
       #vessel = Vessel.where(access_token: params[:access_token]).first
-
+      id = params[:id]
       logs = params[:logs]
       logs.each do |l|
         new_log = Log.new    
@@ -36,7 +36,7 @@ module Api
         new_log.lat = l["lat"]
         new_log.logged_at = l["logged_at"]
         new_log.session_token = l["session_token"]
-        new_log.vessel_id = 1
+        new_log.vessel_id = id
         new_log.save!
         #vessel.logs << new_log
       end
