@@ -27,27 +27,21 @@ module Api
     end
 
     def save_logs
-      vessel = Vessel.where(access_token: params[:access_token]).first
+      #vessel = Vessel.where(access_token: params[:access_token]).first
 
-      if vessel.nil?
-        render json: "No such vessel #{params[:access_token]}"
-      else
-        logs = params[:logs]
-        logs.each do |l|
-          new_log = Log.new    
-          new_log.lon = l["lon"]
-          new_log.lat = l["lat"]
-          new_log.logged_at = l["logged_at"]
-          new_log.session_token = l["session_token"]
-          vessel.logs << new_log
-        end
-
-        Vessel.transaction do
-          vessel.save!
-        end
-
-        render json: "Vessel logs count: #{vessel.logs.count}"
+      logs = params[:logs]
+      logs.each do |l|
+        new_log = Log.new    
+        new_log.lon = l["lon"]
+        new_log.lat = l["lat"]
+        new_log.logged_at = l["logged_at"]
+        new_log.session_token = l["session_token"]
+        new_log.vessel_id = 1
+        new_log.save!
+        #vessel.logs << new_log
       end
+
+      render json: "Ok"
     end
   end
 end
