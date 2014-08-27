@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/vessels/last_location", to: "vessels#last_location", as: :last_location
+    post "/vessels/last_locations", to: "vessels#last_locations", as: :last_locations
     post "/vessels/logs/save", to: "vessels#save_logs", as: :save_logs
     get "/vessels/get_logs", to: "vessels#get_logs", as: :get_logs
   end

@@ -41,6 +41,10 @@
 <script>
 
 var vessels = <%= "#{vessels.to_json}".html_safe %>;
+var ids = new Array();
+<% vessels.each do |v| %>
+  ids.push(<%= v.id %>);
+<% end %>
 
 // GLOBAL VARIABLES
 var map;
@@ -94,22 +98,23 @@ $(document).ready(function() {
 function drawVessels() {
   clearData();
   console.log("Drawing vessels");
-  $.each(vessels, function(index, value) {
-    var latest_log;
-    $.ajax({
-      url: '/api/vessels/last_location?access_token=' + value['access_token'],
-      success: function(result) {
-                latest_log = result;
-              },
-      async: false
-    });
+  var data;
+  $.ajax({
+    url: '/api/vessels/last_locations',
+    type: 'POST',
+    data: { ids: ids },
+    success: function(result) {
+              data = result;
+            },
+    async: false
+  });
 
-    if(!$.isEmptyObject(latest_log)) {
-      console.log("Latest log for " + value['name'] + ":");
-      console.log(JSON.stringify(latest_log));
+  if(!$.isEmptyObject(data)) {
+    console.log(JSON.stringify(data));
+    jQuery.each(data, function(i, latest_log) {
       var vesselPoint = new OpenLayers.LonLat(latest_log.lon, latest_log.lat).transform(projectionWGS, map.getProjectionObject());
       var vesselMarker = new OpenLayers.Marker(vesselPoint, defaultMarker.clone());
-      var popupText = "<b>" + value['name'] + "</b><br>" + value['code'];
+      var popupText = "<b>" + latest_log.name + "</b><br>" + latest_log.code;
       var popup = new OpenLayers.Popup.FramedCloud("Popup",
         vesselMarker.lonlat, new OpenLayers.Size(200,200),
         popupText, null,
@@ -117,15 +122,12 @@ function drawVessels() {
       );
       markerLayer.addMarker(vesselMarker);
       map.addPopup(popup);
-
-      // Change table
-      $("#vessel-latest-log-" + value.id).html("<b>Lon:</b> " + latest_log.lon + " <b>Lat:</b> " + latest_log.lat);
-      $("#vessel-latest-log-timestamp-" + value.id).html(latest_log.logged_at);
-    } else {
-      console.log("Error in latest log for vessel " + value["name"]);
-    }
-    
-  });
+      $("#vessel-latest-log-" + latest_log.id).html("<b>Lon:</b> " + latest_log.lon + " <b>Lat:</b> " + latest_log.lat);
+      $("#vessel-latest-log-timestamp-" + latest_log.id).html(latest_log.logged_at);
+    });
+  } else {
+    console.log("Error in latest log for vessel ");
+  }
 }
 
 function clearData() {

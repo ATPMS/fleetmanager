@@ -26,9 +26,25 @@ module Api
       end
     end
 
+    def last_locations
+      data = []
+      ids = params[:ids]
+      ids.each do |i|
+        vessel = Vessel.find(i)
+        latest_log = Log.where("vessel_id = ?", i).order("logged_at DESC").first
+        puts latest_log.inspect
+        if !latest_log.nil?
+          data << { id: vessel.id, name: vessel.name, code: vessel.code, lon: latest_log.lon, lat: latest_log.lat }
+        end
+      end
+
+      render json: data
+    end
+
     def save_logs
       #vessel = Vessel.where(access_token: params[:access_token]).first
       id = params[:id]
+      access_token = params[:access_token]
       logs = params[:logs]
       logs.each do |l|
         new_log = Log.new    
@@ -36,6 +52,7 @@ module Api
         new_log.lat = l["lat"]
         new_log.logged_at = l["logged_at"]
         new_log.session_token = l["session_token"]
+        new_log.access_token = access_token
         new_log.vessel_id = id
         new_log.save!
         #vessel.logs << new_log
