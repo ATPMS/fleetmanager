@@ -1,0 +1,18 @@
+<div class="well">
+  <%= form_tag send("account_vessel_maintenances_path"), method: :get do |f| %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= select_tag :vessel_id, options_from_collection_for_select(Vessel.where(user_id: current_user), :id, :name, @vessel.try(:id)), prompt: "-- Vessel --", class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= select_tag :status, options_for_select(VesselMaintenance::MAINTENANCE_STATUSES), prompt: "-- status --", class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= select_tag :maintenance_type_id, options_from_collection_for_select(MaintenanceType.all, :id, :name, @maintenance_type.try(:id)), prompt: "-- By Type --", class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= submit_tag "Search", class: "btn btn-block btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>

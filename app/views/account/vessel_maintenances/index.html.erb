@@ -1,7 +1,13 @@
 <div class="container">
-  <div class="col-md-12">
-    <h1>Maintenance Records</h1>
-    <hr>
+  <div class="row">
+    <div class="col-md-3 index-controls">
+      <%= link_to new_account_vessel_maintenance_path, class: "btn btn-primary btn-lg btn-block" do %>
+        <span class="glyphicon glyphicon-plus"></span> &nbsp New Maintenance
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= render partial: "account/vessel_maintenances/search_tool" %>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-12">

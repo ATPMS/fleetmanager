@@ -12,6 +12,8 @@ class VesselMaintenance < ActiveRecord::Base
   belongs_to :maintenance_type
   validates :maintenance_type, presence: true
 
+  belongs_to :service_company
+
   def self.user_vessel_maintenances(u)
     VesselMaintenance.joins(:vessel).where("user_id = ?", u.id).order("vessel_maintenances.date_of_maintenance DESC")
   end

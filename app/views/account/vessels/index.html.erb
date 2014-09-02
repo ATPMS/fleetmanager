@@ -1,8 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1>My Fleet</h1>
-      <hr>
+    <div class="col-md-3 index-controls">
+      <%= link_to new_account_vessel_path, class: "btn btn-primary btn-lg btn-block" do %>
+        <span class="glyphicon glyphicon-road"></span> &nbsp Add New Vessel
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= render partial: "account/vessels/search_tool" %>
     </div>
   </div>
   <div class="row">

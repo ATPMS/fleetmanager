@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827053743) do
+ActiveRecord::Schema.define(version: 20140901123230) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(version: 20140827053743) do
     t.datetime "updated_at"
   end
 
+  create_table "service_companies", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "contact_number"
+    t.string   "email"
+    t.text     "notes"
+    t.string   "contact_person"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "address"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -86,16 +98,28 @@ ActiveRecord::Schema.define(version: 20140827053743) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  create_table "vessel_images", force: true do |t|
+    t.integer  "vessel_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "vessel_maintenances", force: true do |t|
     t.integer  "vessel_id"
     t.date     "date_of_maintenance"
     t.string   "status"
     t.string   "person_in_charge"
-    t.string   "service_company"
     t.decimal  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "maintenance_type_id"
+    t.text     "notes"
+    t.integer  "service_company_id"
   end
 
   create_table "vessels", force: true do |t|
@@ -106,6 +130,18 @@ ActiveRecord::Schema.define(version: 20140827053743) do
     t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "designated_driver_image_file_name"
+    t.string   "designated_driver_image_content_type"
+    t.integer  "designated_driver_image_file_size"
+    t.datetime "designated_driver_image_updated_at"
+    t.string   "driver_first_name"
+    t.string   "driver_last_name"
+    t.string   "driver_contact_number"
+    t.text     "driver_address"
   end
 
 end

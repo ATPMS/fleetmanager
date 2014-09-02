@@ -1,6 +1,7 @@
 <table class="table table-bordered">
   <tr>
     <th>Date</th>
+    <th>Service Company</th>
     <th>Vessel</th>
     <th>Type</th>
     <th>Cost</th>
@@ -10,6 +11,7 @@
   <% vessel_maintenances.each do |m| %>
     <tr>
       <td><%= m.date_of_maintenance %></td>
+      <td><%= m.service_company %></td>
       <td><%= m.vessel %></td>
       <td><%= m.maintenance_type %></td>
       <td><%= number_to_currency(m.cost, unit: "P") %></td>

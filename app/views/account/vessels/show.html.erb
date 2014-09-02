@@ -14,7 +14,8 @@
     <div class="col-md-12">
       <ul class="nav nav-tabs nav-justified">
         <li class="active"><%= link_to "General", "#general", "data-toggle" => "tab"  %></li>
-        <li class=""><%= link_to "Maintenance", "#maintenance", "data-toggle" => "tab" %></li>
+        <li class=""><%= link_to "Maintenance Records", "#maintenance", "data-toggle" => "tab" %></li>
+        <li class=""><%= link_to "Images", "#images", "data-toggle" => "tab" %></li>
       </ul>
       <div class="tab-content tab-content-inner">
         <div class="tab-pane active" id="general">
@@ -22,6 +23,10 @@
         </div>
         <div class="tab-pane" id="maintenance">
           <%= render partial: "account/vessel_maintenances/list", locals: { vessel_maintenances: @vessel.vessel_maintenances.order("date_of_maintenance DESC") } %>
+          <%= link_to "Add Maintenance Record", new_account_vessel_maintenance_path(vessel_id: @vessel.id), class: "btn btn-info" %>
+        </div>
+        <div class="tab-pane" id="images">
+          <%= render partial: "account/vessels/images_details", locals: { vessel: @vessel } %>
         </div>
       </div>
     </div>

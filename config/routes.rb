@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post "/map", to: "vessels#map", as: :map_post
   end
 
+  resources :service_companies
+
   namespace :api do
     get "/vessels/last_location", to: "vessels#last_location", as: :last_location
     post "/vessels/last_locations", to: "vessels#last_locations", as: :last_locations

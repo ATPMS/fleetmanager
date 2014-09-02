@@ -17,7 +17,34 @@
  */
 
 @import 'bootstrap';
+@import 'bootstrap-sprockets';
 @import 'colors';
+
+.form-actions {
+  padding: 19px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+}
+
+#nav {
+  li a {
+    &.active {
+      color: #fff;
+      border-bottom: 5px solid $darkBlue; 
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.index-controls {
+  padding-top: 14px;
+}
+
+.well {
+  border-radius: 0px;
+}
 
 .select2-container {
   padding:  0px;

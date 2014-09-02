@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 index-controls">
+      <%= link_to new_service_company_path, class: "btn btn-primary btn-lg btn-block" do %>
+        <span class="glyphicon glyphicon-briefcase"></span> &nbsp New Service Company
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= render partial: "service_companies/search_tool" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: "service_companies/table", locals: { service_companies: @service_companies } %>
+      <%= paginate @service_companies %>
+    </div>
+  </div>
+</div>
+

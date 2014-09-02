@@ -1,0 +1,12 @@
+<div class="well">
+  <%= form_tag send("service_companies_path"), method: :get do |f| %>
+    <div class="row">
+      <div class="col-md-10">
+        <%= text_field_tag :q, @q, class: "form-control", placeholder: "Search by Name" %>
+      </div>
+      <div class="col-md-2">
+        <%= submit_tag "Search", class: "btn btn-block btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<table class="table table-bordered table-stripped">
+  <tr>
+    <th>Title</th>
+    <th>Image</th>
+  </tr>
+  <% vessel.vessel_images.each do |vessel_image| %>
+    <tr>
+      <td><%= vessel_image.title %></td>
+      <td><%= image_tag vessel_image.image.url(:standard) %></td>
+    </tr>
+  <% end %>
+</table>

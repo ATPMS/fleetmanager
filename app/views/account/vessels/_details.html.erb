@@ -16,3 +16,16 @@
     <td><%= vessel.access_token %></td>
   </tr>
 </table>
+
+<h3>Driver Details</h3>
+<div class="well">
+  <div class="row">
+    <div class="col-md-12">
+      <%= image_tag vessel.designated_driver_image.url(:standard) %>
+      <br>
+      <b>Name: </b> <%= "#{vessel.driver_first_name} #{vessel.driver_last_name}" %><br>
+      <b>Contact Number: </b> <%= vessel.driver_contact_number %><br>
+      <b>Address: </b> <%= vessel.driver_address %><br>
+    </div>
+  </div>
+</div>

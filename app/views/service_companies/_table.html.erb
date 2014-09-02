@@ -1,0 +1,20 @@
+<table class="table table-bordered table-stripped">
+  <tr>
+    <th>Name</th>
+    <th>Contact Number</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <% service_companies.each do |service_company| %>
+    <tr>
+      <td><%= service_company.name %></td>
+      <td><%= service_company.contact_number %></td>
+      <td><%= service_company.email %></td>
+      <td>
+        <%= link_to "Show", service_company_path(service_company), class: "btn btn-xs btn-info" %>
+        <%= link_to "Edit", edit_service_company_path(service_company), class: "btn btn-xs btn-info" %>
+        <%= link_to "Delete", service_company_path(service_company), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

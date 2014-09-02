@@ -1,10 +1,35 @@
 <%= simple_form_for [:account, vessel_maintenance], defaults: { wrapper_html: { class: 'form-group' }, input_html: { class: 'form-control' } }  do |f| %>
-  <%= f.association :vessel, as: :select, collection: @vessels %>
-  <%= f.input :date_of_maintenance, as: :string, input_html: { type: "date" } %>
-  <%= f.input :status, as: :select, collection: VesselMaintenance::MAINTENANCE_STATUSES %>
-  <%= f.input :person_in_charge %>
-  <%= f.input :service_company %>
-  <%= f.input :cost %>
-  <%= f.association :maintenance_type %>
-  <%= f.submit "Save Record", class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-md-5">
+      <%= f.association :vessel, as: :select, collection: @vessels %>
+    </div>
+    <div class="col-md-5">
+      <%= f.input :date_of_maintenance, as: :string, input_html: { type: "date" } %>
+    </div>
+    <div class="col-md-2">
+      <%= f.input :status, as: :select, collection: VesselMaintenance::MAINTENANCE_STATUSES %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.association :maintenance_type %>
+    </div>
+    <div class="col-md-4">
+      <%= f.association :service_company, as: :select, collection: ServiceCompany.where(user_id: current_user) %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :cost %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :person_in_charge %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :notes %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Save Record", class: "btn btn-primary" %>
+  </div>
 <% end %>

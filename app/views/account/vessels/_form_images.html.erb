@@ -1,0 +1,22 @@
+<%= f.simple_fields_for :vessel_images do |ff| %>
+  <div class="well">
+    <div class="row">
+      <div class="col-md-6">
+        <%= ff.input :title %>
+        <%= ff.input :image, as: :file %>
+        <%= image_tag ff.object.image.url(:medium) %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <%= ff.link_to_remove "Remove Record", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <%= f.link_to_add "Add Vessel Image", :vessel_images, class: "btn btn-info" %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 module Account
   class VesselMaintenancesController < ApplicationController
+    before_filter :authenticate_user!
 
     def index
       @vessel_maintenances = VesselMaintenance.user_vessel_maintenances(current_user).page(params[:page]).per(10)

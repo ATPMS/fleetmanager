@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= @service_company %></h2>
+      <%= link_to "Back to Directory", service_companies_path, class: "btn btn-default btn-xs" %>
+    </div>
+  </div>
+  <hr>
+  <%= render partial: "service_companies/details", locals: { service_company: @service_company } %>
+</div>

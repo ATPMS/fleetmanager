@@ -1,4 +1,4 @@
-<nav class="navbar-wrapper navbar-inverse" role="navigation">
+<nav class="navbar-wrapper navbar-inverse navbar-fixed-top" role="navigation" id="nav">
   <div class="container">
     <div class="navbar-header">
       <%= link_to "Fleet Management", root_path, class: "navbar-brand" %>
@@ -6,23 +6,18 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="dropdown"><%= link_to "Map", "", class: "dropdown-toggle", "data-toggle" => "dropdown" %>
+          <li class="dropdown">
+            <%= link_to "", class: "", "data-toggle" => "dropdown" do %>
+              Map <span class="caret"></span>
+            <% end %>
             <ul class="dropdown-menu">
               <li><%= link_to "Real Time Tracking", account_map_path %></li>
               <li><%= link_to "Traffic Volume", traffic_volume_path %></li>
             </ul>
           </li>
-          <li class="dropdown"><%= link_to "Vessels", "", class: "dropdown-toggle", "data-toggle" => "dropdown" %>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Add Vessel", new_account_vessel_path %></li>
-              <li><%= link_to "Display Vessels", account_vessels_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown"><%= link_to "Maintenance Records", "", class: "dropdown-toggle", "data-toggle" => "dropdown" %>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Add Maintenance Record", new_account_vessel_maintenance_path %></li>
-              <li><%= link_to "Maintenance Records", account_vessel_maintenances_path %></li>
-            </ul>
+          <li class=""><%= link_to "Vessels", account_vessels_path, class: "#{'active' if params[:controller] == 'account/vessels'}" %></li>
+          <li class=""><%= link_to "Maintenance Records", account_vessel_maintenances_path, class: "#{'active' if params[:controller] == 'account/vessel_maintenances'}" %>
+          <li class=""><%= link_to "Service Companies", service_companies_path, class: "#{'active' if params[:controller] == 'service_companies'}" %>
           </li>
         </ul>
         <div class="navbar-form navbar-right" style="color: #fff;">

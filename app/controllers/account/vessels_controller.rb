@@ -6,7 +6,14 @@ module Account
     layout :resolve_layout
     
     def index
-      @vessels = Vessel.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(10)
+      @vessels = Vessel.where(user_id: current_user.id).order("created_at DESC")
+
+      if params[:q].present?
+        @q = params[:q]
+        @vessels = @vessels.where("vessels.name LIKE :q OR vessels.code LIKE :q OR vessels.reference_number LIKE :q", q: "%#{@q}%")
+      end
+
+      @vessels = @vessels.page(params[:page]).per(10)
     end
 
     def real_time
@@ -53,10 +60,6 @@ module Account
     def show
       @vessel = Vessel.find(params[:id]) 
       @vessels = [@vessel]
-
-      if @vessel.logs.count == 0
-        flash.now[:error] = "No logs for this vessel"
-      end
     end
 
     def map
