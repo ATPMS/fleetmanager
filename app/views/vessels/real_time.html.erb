@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Real Time Tracking <small><%= @vessel %></small></h1>
+      <%= render partial: "vessels/show_actions", locals: { vessel: @vessel }  %>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: "vessels/tracking_map", locals: { vessels: [@vessel] } %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class VesselMaintenance < ActiveRecord::Base
-  MAINTENANCE_STATUSES = ["pending", "done", "cancelled"]
+  MAINTENANCE_STATUSES = ["pending", "done", "on-going"]
   validates :date_of_maintenance, presence: true
   validates :status, presence: true
   validates :person_in_charge, presence: true

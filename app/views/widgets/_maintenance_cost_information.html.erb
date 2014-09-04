@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="small-box on-going">
+      <div class="inner">
+        <h3><%= Vessel.ongoing_count %></h3>
+        <p>On-going</p>
+        <div class="cost">
+          Cost: <%= number_to_currency(Vessel.ongoing_cost, unit: "P") %>
+        </div>
+      </div>
+      <div class="icon">
+        <span class="glyphicon glyphicon-repeat"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="small-box pending">
+      <div class="inner">
+        <h3><%= Vessel.pending_count %></h3>
+        <p>Pending</p>
+        <div class="cost">
+          Cost: <%= number_to_currency(Vessel.pending_cost, unit: "P") %>
+        </div>
+      </div>
+      <div class="icon">
+        <span class="glyphicon glyphicon-minus"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="small-box done">
+      <div class="inner">
+        <h3><%= Vessel.done_count %></h3>
+        <p>Done</p>
+        <div class="cost">
+          Cost: <%= number_to_currency(Vessel.done_cost, unit: "P") %>
+        </div>
+      </div>
+      <div class="icon">
+        <span class="glyphicon glyphicon-star"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="small-box delayed">
+      <div class="inner">
+        <h3><%= Vessel.delayed_count %></h3>
+        <p>Delayed</p>
+        <div class="cost">
+          Cost: <%= number_to_currency(Vessel.delayed_cost, unit: "P") %>
+        </div>
+      </div>
+      <div class="icon">
+        <span class="glyphicon glyphicon-refresh"></span>
+      </div>
+    </div>
+  </div>
+</div>
+

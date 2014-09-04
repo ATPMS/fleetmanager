@@ -10,15 +10,34 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_self
  *= require notifications
  *= require colors
  *= require select2
- *= require_self
+ *= require nav
+ *= require vessels
+ *= require widgets
+ *= require jquery-ui
+ *= require jquery.datetimepicker
+ *= require jquery.minicolors
+ *= require dashboard
  */
 
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
+@import 'bootstrap-datepicker';
 @import 'colors';
+
+.simpleBox {
+  border: 1px solid #e2e2e2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.showActions {
+  text-align: right;
+  padding-top: 38px;
+}
 
 .form-actions {
   padding: 19px 20px 20px;
@@ -143,6 +162,7 @@ html, body, #map {
 
 #main {
   position: relative;
+  min-height: 450px;
 }
 
 #login {

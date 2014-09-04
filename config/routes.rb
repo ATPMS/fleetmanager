@@ -5,14 +5,20 @@ Rails.application.routes.draw do
 
   root to: "pages#index"
 
+  resources :vessels do
+    resources :crews, controller: "vessels/crews"
+    resources :vessel_maintenances, controller: "vessels/vessel_maintenances"
+  end
+
+  resources :vessel_maintenances
+
+  get "/vessels/:id/real_time", to: "vessels#real_time", as: :vessel_real_time
+  get "/vessels/:id/tracking_history", to: "vessels#tracking_history", as: :vessel_tracking_history
+  get "/map", to: "vessels#map", as: :map
+  post "/map", to: "vessels#map", as: :map_post
+
   namespace :account do
-    resources :vessels
-    get "/vessels/:id/real_time", to: "vessels#real_time", as: :vessel_real_time
-    get "/vessels/:id/tracking_history", to: "vessels#tracking_history", as: :vessel_tracking_history
-    resources :vessel_maintenances
     resources :users, only: [:show, :edit, :update]
-    get "/map", to: "vessels#map", as: :map
-    post "/map", to: "vessels#map", as: :map_post
   end
 
   resources :service_companies

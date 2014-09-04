@@ -1,0 +1,13 @@
+@import "colors";
+
+.verticalTabs {
+  .active {
+    background: $darkBlue;
+    color: $white;
+  }
+  div {
+    margin-right: -15px;
+    background: #e2e2e2;
+    padding: 20px;
+  }
+}

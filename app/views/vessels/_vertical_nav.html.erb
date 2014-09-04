@@ -1,0 +1,17 @@
+<div class="verticalTabs">
+  <%= link_to vessel_path(vessel) do %>
+    <div class="<%= 'active' if params[:controller] == 'vessels' %>">
+      <i class="glyphicon glyphicon-star"> General</i>
+    </div>
+  <% end %>
+  <%= link_to vessel_crews_path(vessel) do %>
+    <div class="<%= 'active' if params[:controller] == 'vessels/crews' %>">
+      <i class="glyphicon glyphicon-user"> Crew (<%= vessel.crews.count %>)</i>
+    </div>
+  <% end %>
+  <%= link_to vessel_vessel_maintenances_path(vessel) do %> 
+    <div class="<%= 'active' if params[:controller] == 'vessels/vessel_maintenances' %>">
+      <i class="glyphicon glyphicon-wrench"> Maintenance (<%= vessel.vessel_maintenances.count %>)</i>
+    </div>
+  <% end %>
+</div>

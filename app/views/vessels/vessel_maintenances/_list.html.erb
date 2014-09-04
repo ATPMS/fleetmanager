@@ -1,0 +1,29 @@
+<% if vessel_maintenances.count == 0 %>
+  No records found
+<% else %>
+  <table class="table table-bordered">
+    <tr>
+      <th>Date</th>
+      <th>Service Company</th>
+      <th>Type</th>
+      <th>Cost</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <% vessel_maintenances.each do |m| %>
+      <tr>
+        <td><%= m.date_of_maintenance %></td>
+        <td><%= m.service_company %></td>
+        <td><%= m.maintenance_type %></td>
+        <td><%= number_to_currency(m.cost, unit: "P") %></td>
+        <td><%= m.status %></td>
+        <td>
+          <%= link_to "Show", vessel_maintenance_path(m), class: "btn btn-primary btn-xs" %>
+          <%= link_to "Edit", edit_vessel_maintenance_path(m), class: "btn btn-info btn-xs" %>
+          <%= link_to "Delete", vessel_maintenance_path(m), class: "btn btn-danger btn-xs", data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<%= paginate vessel_maintenances %>

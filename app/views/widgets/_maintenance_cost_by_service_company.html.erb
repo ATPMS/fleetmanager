@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>On-going</th>
+    <th>Pending</th>
+    <th>Done</th>
+    <th>Delayed</th>
+  </tr>
+  <% current_user.service_companies.each do |sc| %>
+    <tr>
+      <td><%= link_to sc, service_company_path(sc) %></td>
+      <td><%= sc.ongoing_count %> <%= "(#{number_to_currency(sc.ongoing_cost, unit: "P")})" %></td>
+      <td><%= sc.pending_count %> <%= "(#{number_to_currency(sc.pending_cost, unit: "P")})" %></td>
+      <td><%= sc.done_count %> <%= "(#{number_to_currency(sc.done_cost, unit: "P")})" %></td>
+      <td><%= sc.delayed_count %> <%= "(#{number_to_currency(sc.delayed_cost, unit: "P")})" %></td>
+    </tr>
+  <% end %>
+</table>

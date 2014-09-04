@@ -1,0 +1,52 @@
+@import "colors";
+
+.small-box {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid $gray;
+  height: 128px;
+  h3 {
+    font-weight: bolder;
+  }
+
+  .cost {
+    background: rgba(0,0,0,0.5);
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .icon {
+    position: absolute;
+    top: auto;
+    bottom: 20px;
+    right: 34px;
+    z-index: 0;
+    font-size: 75px;
+    color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+#vessels {
+  .on-going {
+    background-color: $aquaBlue;
+    color: white;
+  }
+
+  .pending {
+    background-color: $red;
+    color: white;
+  }
+
+  .done {
+    background-color: $green;
+    color: white;
+  }
+
+  .delayed {
+    background-color: $yellow;
+    color: white;
+  }
+}

@@ -1,0 +1,17 @@
+@import "colors";
+
+#vessels {
+  .content {
+    border-left: 3px solid $darkBlue;
+    min-height: 450px;
+  }
+
+  .actions {
+    padding-top: 22px;
+  }
+
+  .show-actions {
+    padding-top: 38px;
+    text-align: right;
+  }
+}

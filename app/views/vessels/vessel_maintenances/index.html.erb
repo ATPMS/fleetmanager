@@ -1,0 +1,34 @@
+<div class="container" id="vessels">
+  <div class="row">
+    <div class="col-md-4">
+      <h1><%= @vessel %> <small><%= @vessel.code %></small></h1>
+    </div>
+    <div class="col-md-8">
+      <%= render partial: "vessels/show_actions", locals: { vessel: @vessel } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: "vessels/vertical_nav", locals: { vessel: @vessel } %>
+    </div>
+    <div class="col-md-9 content">
+      <div class="simpleBox">
+        <div class="row">
+          <div class="col-md-2">
+            <%= link_to "New Record", new_vessel_maintenance_path(vessel_id: @vessel.id), class: "btn btn-primary btn-block" %>
+          </div>
+          <div class="col-md-10">
+            <%= render partial: "vessels/vessel_maintenances/search_tool" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= render partial: "vessels/vessel_maintenances/list", locals: { vessel_maintenances: @vessel_maintenances } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

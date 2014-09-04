@@ -1,0 +1,41 @@
+<%= f.simple_fields_for :crews do |ff| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="simpleBox">
+        <div class="row">
+          <div class="col-md-4">
+            <%= ff.input :first_name %>
+          </div>
+          <div class="col-md-4">
+            <%= ff.input :last_name %>
+          </div>
+          <div class="col-md-4">
+            <%= ff.input :identification_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= ff.input :email %>
+          </div>
+          <div class="col-md-4">
+            <%= ff.input :contact_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= ff.input :crew_profile_picture, as: :file %>
+            <%= image_tag ff.object.crew_profile_picture.url(:standard) %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <%= ff.link_to_remove "Remove Record", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+<% end %>
+<%= f.link_to_add "Add Crew", :crews, class: "btn btn-info" %>

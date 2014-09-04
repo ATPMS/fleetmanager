@@ -1,0 +1,35 @@
+<% crews.each do |crew| %>
+  <div class="simpleBox">
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag crew.crew_profile_picture(:standard) %>
+      </div>
+      <div class="col-md-10">
+        <table class="table table-bordered">
+          <tr>
+            <th>Name</th>
+            <td><%= crew %></td>
+          </tr>
+          <tr>
+            <th>Identification Number</th>
+            <td><%= crew.identification_number %></td>
+          </tr>
+          <tr>
+            <th>Contact Number</th>
+            <td><%= crew.contact_number %></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><%= crew.email %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "Edit", edit_vessel_crew_path(@vessel, crew), class: "btn btn-xs btn-info" %>
+        <%= link_to "Delete", vessel_crew_path(@vessel, crew), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+      </div>
+    </div>
+  </div>
+<% end %>

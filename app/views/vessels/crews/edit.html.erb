@@ -1,0 +1,24 @@
+<div class="container" id="vessels">
+  <div class="row">
+    <div class="col-md-4">
+      <h1><%= @vessel %> <small><%= @vessel.code %></small></h1>
+    </div>
+    <div class="col-md-8">
+      <%= render partial: "vessels/show_actions", locals: { vessel: @vessel } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: "vessels/vertical_nav", locals: { vessel: @vessel } %>
+    </div>
+    <div class="col-md-9 content">
+      <div class="simpleBox">
+        <h3>Edit Crew <small><%= @vessel %></small></h3> 
+        <%= link_to "Back to Crew List", vessel_crews_path(@vessel), class: "btn btn-default btn-xs" %>
+        <hr>
+        <%= render partial: "vessels/crews/form" %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -16,9 +16,13 @@
 //= require openlayers-rails
 //= require js-routes
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require select2
 //= require tracking
 //= require jquery_nested_form
+//= require Chart
+//= require jquery.datetimepicker
+//= require jquery.minicolors
 //= require_tree .
 
 $(document).ready(function() {
@@ -27,4 +31,11 @@ $(document).ready(function() {
     $container = $(this).prev(".select2-container");
     $container.height($container.children(".select2-choices").height());
   });
+
+  $('.datetimepicker').datetimepicker();
+  $('.colorpicker').minicolors();
 });
+
+var initDatePicker = function() {
+  $(".datepick").datepicker({dateFormat: "yy-mm-dd"});
+};

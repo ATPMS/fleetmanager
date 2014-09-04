@@ -11,12 +11,12 @@
               Map <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to "Real Time Tracking", account_map_path %></li>
+              <li><%= link_to "Real Time Tracking", map_path %></li>
               <li><%= link_to "Traffic Volume", traffic_volume_path %></li>
             </ul>
           </li>
-          <li class=""><%= link_to "Vessels", account_vessels_path, class: "#{'active' if params[:controller] == 'account/vessels'}" %></li>
-          <li class=""><%= link_to "Maintenance Records", account_vessel_maintenances_path, class: "#{'active' if params[:controller] == 'account/vessel_maintenances'}" %>
+          <li class=""><%= link_to "Vessels", vessels_path, class: "#{'active' if ['vessels', 'vessels/crews', 'vessels/vessel_maintenances'].include? params[:controller]}" %></li>
+          <li class=""><%= link_to "Maintenance Records", vessel_maintenances_path, class: "#{'active' if params[:controller] == 'vessel_maintenances'}" %>
           <li class=""><%= link_to "Service Companies", service_companies_path, class: "#{'active' if params[:controller] == 'service_companies'}" %>
           </li>
         </ul>

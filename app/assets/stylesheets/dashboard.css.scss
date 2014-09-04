@@ -1,0 +1,24 @@
+@import "colors";
+
+#dashboard {
+  .on-going {
+    background-color: $aquaBlue;
+    color: white;
+  }
+
+  .pending {
+    background-color: $red;
+    color: white;
+  }
+
+  .done {
+    background-color: $green;
+    color: white;
+  }
+
+  .delayed {
+    background-color: $yellow;
+    color: white;
+  }
+}
+

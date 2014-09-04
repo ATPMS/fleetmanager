@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :company_name, presence: true
 
   has_many :vessels
+  has_many :service_companies
 
   def to_s
     email

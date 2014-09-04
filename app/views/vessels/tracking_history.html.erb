@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Tracking History <small><%= @vessel %></small></h1>
+    </div>
+    <div class="col-md-6">
+      <div class="showActions">
+        <%= render partial: "vessels/show_actions", locals: { vessel: @vessel }  %>
+      </div>
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="col-md-12">
+      <%= render partial: "vessels/tracking_history_map", locals: { vessel: @vessel } %>
+    </div>
+  </div>
+</div>

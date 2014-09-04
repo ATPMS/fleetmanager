@@ -1,13 +1,21 @@
-<div class="container">
+<div class="container" id="dashboard">
   <div class="row">
     <div class="col-md-12">
       <h1>Dashboard</h1>
       <hr>
     </div>
   </div>
+  <h3>Maintenance Cost <%= link_to "View All", vessel_maintenances_path, class: "btn btn-default btn-xs" %></h3>
+  <%= render partial: "widgets/maintenance_cost_information" %>
+  <hr>
   <div class="row">
-    <div class="col-md-12">
-      <%= render partial: "account/vessels/table", locals: { vessels: @vessels } %>
+    <div class="col-md-6">
+      <h3>Service Company Maintenance <%= link_to "View All", service_companies_path, class: "btn btn-xs btn-default" %></h3>
+      <%= render partial: "widgets/maintenance_cost_by_service_company" %>
+    </div>
+    <div class="col-md-6">
+      <h3>Upcoming Maintenance Tasks</h3>
+      <%= render partial: "widgets/upcoming_maintenance_tasks", locals: { maintenance_records: @maintenance_records } %>
     </div>
   </div>
 </div>
