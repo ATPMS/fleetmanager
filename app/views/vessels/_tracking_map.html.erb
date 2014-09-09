@@ -120,8 +120,8 @@ function drawVessels() {
         popupText, null,
         true
       );
-      markerLayer.addMarker(vesselMarker);
-      map.addPopup(popup);
+      //markerLayer.addMarker(vesselMarker);
+      //map.addPopup(popup);
       $("#vessel-latest-log-" + latest_log.id).html("<b>Lon:</b> " + latest_log.lon + " <b>Lat:</b> " + latest_log.lat);
       $("#vessel-latest-log-timestamp-" + latest_log.id).html(latest_log.logged_at);
     });
@@ -145,7 +145,8 @@ function initialize() {
 
   size = new OpenLayers.Size(21,25);
   offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-  defaultMarker = new OpenLayers.Icon("http://www.openlayers.org/dev/img/marker.png", size, offset);
+  //defaultMarker = new OpenLayers.Icon("http://www.openlayers.org/dev/img/marker.png", size, offset);
+  defaultMarker = new OpenLayers.Icon("http://www.goughmap.org/_a/cms_page_media/29/red_marker_1.png", size, offset);
 
   // Points
   pointsLayer = new OpenLayers.Layer.Vector("Points Layer");
