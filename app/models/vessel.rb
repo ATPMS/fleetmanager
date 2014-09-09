@@ -58,11 +58,11 @@ class Vessel < ActiveRecord::Base
   end
 
   def self.delayed_count
-    VesselMaintenance.where("status = ? AND date_of_maintenance > ?", "pending", Time.now).count
+    VesselMaintenance.where("status = ? AND date_of_maintenance < ?", "pending", Time.now).count
   end
 
   def self.delayed_cost
-    VesselMaintenance.where("status = ? AND date_of_maintenance > ?", "pending", Time.now).sum(:cost)
+    VesselMaintenance.where("status = ? AND date_of_maintenance < ?", "pending", Time.now).sum(:cost)
   end
 
   def pending_count
@@ -90,11 +90,11 @@ class Vessel < ActiveRecord::Base
   end
 
   def delayed_count
-    VesselMaintenance.where("vessel_id = ? AND status = ? AND date_of_maintenance > ?", self.id, "pending", Time.now).count
+    VesselMaintenance.where("vessel_id = ? AND status = ? AND date_of_maintenance < ?", self.id, "pending", Time.now).count
   end
 
   def delayed_cost
-    VesselMaintenance.where("vessel_id = ? AND status = ? AND date_of_maintenance > ?", self.id, "pending", Time.now).sum(:cost)
+    VesselMaintenance.where("vessel_id = ? AND status = ? AND date_of_maintenance < ?", self.id, "pending", Time.now).sum(:cost)
   end
 
   def to_s
